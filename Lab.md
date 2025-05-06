@@ -12,9 +12,13 @@ The web app will then be available on `localhost:8080`. It is also important to 
 ## RISK #1: SQL Injection
 Our pen tester noted that it is possible to gain access to the database using SQL Injection.
 
-![task](./task.png) Use SQL Injection to gain access to the secret message. Document which command you used.
+&check; Use SQL Injection to gain access to the secret message. Document which command you used.
 
-![task](./task.png) Fix the backend so user input is sanitized.
+To gain access to the secret message with SQL Injection I used the following string in the `username` field: `'or 1=1--`. I also filled the `password` field with a random value as otherwise the server wouldn't accept my request.
+
+&check; Fix the backend so user input is sanitized.
+
+To sanitize the user input, I made use of a parameterized query.
 
 ## RISK #2: Insecure Storage
 The passwords are stored in plaintext in our database. That's a big problem. The client, however, refuses to migrate to a third party solution. 

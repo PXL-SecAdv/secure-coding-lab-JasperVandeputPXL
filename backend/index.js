@@ -9,10 +9,10 @@ const shajs = require('sha.js');
 const port = 3000;
 
 const pool = new pg.Pool({
-  user: 'secadv',
-  host: 'db',
-  database: 'pxldb',
-  password: 'ilovesecurity',
+  user: process.env.APP_PG_USER,
+  host: process.env.APP_PG_HOST,
+  database: process.env.APP_PG_DATABASE,
+  password: process.env.APP_PG_PASSWORD,
   port: 5432,
   connectionTimeoutMillis: 5000
 });

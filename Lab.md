@@ -46,9 +46,12 @@ I specified that only 'http://localhost:8080' can make request with the GET meth
 ## RISK #4: Credentials in Version Control
 Right now, there are a whole lot of credentials hidden in the dockerfiles but also our backend code. These files are usually a part of our version control, making our credentials easy to track down.
 
-![task](./task.png) We don't want our credentials in our dockerfiles or our docker compose file. How can we avoid this? Our solution should not be a part of the version control system.
+&check; We don't want our credentials in our dockerfiles or our docker compose file. How can we avoid this? Our solution should not be a part of the version control system.
 
-![task](./task.png) Use the same solution to remove the credentials from the backend.
+I added a .env file which I included in .gitignore. I then replaced the environment values with references to these in the env file. Docker will auto import a .env if it is in the same directory.
+
+&check; Use the same solution to remove the credentials from the backend.
 
 ![task](./task.png) The damage has been done. Our credentials are exposed in an earlier commit of our version control. What would you recommend?
 
+I would recommen changing the username to something different but still in the same way. For the passwords I recommend changing these to random generated strings of characters with a length of about 32 charactars.

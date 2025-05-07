@@ -36,7 +36,12 @@ Our database can be queried from anywhere. We would like to avoid this by using 
 
 ![task](./task.png) Research CORS. How can it help us?
 
-![task](./task.png) Make sure CORS is used so our backend can only be used by our frontend.
+CORS is a security mechanism that allows a server to specify which origins (domains) are permitted to access its resources. This helps prevent unauthorized websites from making requests to our API.
+By specifying which origins are allowed and more specifically which methods and headers, we gain very granular control over how our API can be accessed.
+
+&check; Make sure CORS is used so our backend can only be used by our frontend.
+
+I specified that only 'http://localhost:8080' can make request with the GET method
 
 ## RISK #4: Credentials in Version Control
 Right now, there are a whole lot of credentials hidden in the dockerfiles but also our backend code. These files are usually a part of our version control, making our credentials easy to track down.

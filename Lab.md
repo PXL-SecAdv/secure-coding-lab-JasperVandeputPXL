@@ -23,9 +23,13 @@ To sanitize the user input, I made use of a parameterized query.
 ## RISK #2: Insecure Storage
 The passwords are stored in plaintext in our database. That's a big problem. The client, however, refuses to migrate to a third party solution. 
 
-![task](./task.png) Make sure the passwords in the database are encrypted.
+&check; Make sure the passwords in the database are encrypted.
 
-![task](./task.png) Make sure your solution doesn't break the login screen!
+To ensure that the passwords in the database are encrypted I hashed them with the SHA256 algorithm
+
+&check; Make sure your solution doesn't break the login screen!
+
+I used the sha.js npm package to hash the incoming password before comparing them to the stored passwords in the database.
 
 ## RISK #3: CORS
 Our database can be queried from anywhere. We would like to avoid this by using CORS.

@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
+const shajs = require('sha.js');
 
 const port = 3000;
 
@@ -26,8 +27,10 @@ app.get('/authenticate/:username/:password', async (request, response) => {
   const username = request.params.username;
   const password = request.params.password;
 
+  const hashedPassword = shajs('sha256').update(password).digest('hex');
+
   const query = `SELECT * FROM users WHERE user_name=$1 and password=$2`;
-  pool.query(query, [username, password], (error, results) => {
+  pool.query(query, [username, hashedPassword], (error, results) => {
     if (error) {
       throw error;
     };
